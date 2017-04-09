@@ -7,7 +7,7 @@ OPTIMIZATION_FLAGS = -O3
 all: createDir macrotest.run bittwiddlingtest.run \
 		vardeclarationQues.run datatypeQues.run \
 		storageClasseQues.run ioQues.run \
-		controlLoopQues.run \
+		controlLoopQues.run userdefinedDataTypeQues.run \
 		moveDir
 
 createDir: 
@@ -32,6 +32,9 @@ ioQues.run: ioQues.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 controlLoopQues.run: controlLoopQues.o
+	$(CC) $(CFLAGS) -o $@ $^
+
+userdefinedDataTypeQues.run: userdefinedDataTypeQues.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 moveDir:
