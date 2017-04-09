@@ -2,9 +2,11 @@
 
 CC = gcc
 CFLAGS = -Wall
+OPTIMIZATION_FLAGS = -O3
 
 all: createDir macrotest.run bittwiddlingtest.run \
 		vardeclarationQues.run datatypeQues.run \
+		storageClasseQues.run ioQues.run \
 		moveDir
 
 createDir: 
@@ -20,6 +22,12 @@ vardeclarationQues.run: vardeclarationQues.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 datatypeQues.run: datatypeQues.o
+	$(CC) $(CFLAGS) -o $@ $^
+
+storageClasseQues.run: storageClasseQues.o
+	$(CC) $(CFLAGS) $(OPTIMIZATION_FLAGS) -o $@ $^
+
+ioQues.run: ioQues.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 moveDir:
