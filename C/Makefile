@@ -3,7 +3,9 @@
 CC = gcc
 CFLAGS = -Wall
 
-all: createDir macrotest.run bittwiddlingtest.run vardeclarationQues.run moveDir
+all: createDir macrotest.run bittwiddlingtest.run \
+		vardeclarationQues.run datatypeQues.run \
+		moveDir
 
 createDir: 
 	mkdir -p build
@@ -17,8 +19,11 @@ bittwiddlingtest.run: bit_twiddling.o
 vardeclarationQues.run: vardeclarationQues.o
 	$(CC) $(CFLAGS) -o $@ $^
 
+datatypeQues.run: datatypeQues.o
+	$(CC) $(CFLAGS) -o $@ $^
+
 moveDir:
 	mv *.o *.run build/
 
-clean: 
+clean:
 	rm -rf build/*.o build/*.run build
